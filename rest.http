@@ -1,0 +1,28 @@
+//Todos los registros
+http://localhost:5000/api/v1/contact/
+
+// Agregar un registro (Cambiar datos)
+POST http://localhost:5000/api/v1/contact/
+Content-Type: application/json
+
+{
+  "nombre": "julio",
+  "email": "julio@gmail.com",
+  "cedula": "15541939",
+  "mensaje": "post"
+}
+
+// Modificar un registro (Cambiar datos)
+PUT http://localhost:5000/api/v1/contact/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "nombre": "Alejandro",
+  "email": "Alejandro@gmail.com",
+  "cedula": "15541939",
+  "mensaje": "PUT ok"
+}
+
+// Borrar registros
+DELETE http://localhost:5000/api/v1/contact/3

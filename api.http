@@ -1,0 +1,65 @@
+
+//Crear usuario principal
+POST http://localhost:5000/api/v1/login/register
+Content-Type: application/json
+
+{
+    "username":"Chayanne",
+    "password":"123456",
+    "email":"diego@gmail.com",
+    "fechacreado":"2012-12-12"
+}
+
+//Consultar usuarios
+http://localhost:5000/api/v1/login/register
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBbGVqYW5kcm8iLCJlbWFpbCI6ImFsZWphbmRyaXRvQGdtYWlsLmNvbSIsIkZlY2hhQ3JlYWRvIjoiMjAwMC0xMC0zMSIsImp0aSI6IjQxNGY4NGE5LTVlODktNDcyZC1iYjUzLWE3Yzk5NmUwYzkwNSIsImV4cCI6MTYwMTA3MjUzNCwiaXNzIjoiREVCU0NvbnN1bHRvcmVzLmNvbSIsImF1ZCI6IkRFQlNDb25zdWx0b3Jlcy5jb20ifQ.Uc47Vhq1sCqkDWeJPQkC55qSEmiuAq3MjGM2tpF2Qfc
+
+
+//////////////////////////////////////////////
+
+//Autenticar
+POST http://localhost:5000/api/v1/login
+Content-Type: application/json
+
+{
+    "username":"Alejandro",
+    "password":"password",
+}
+
+/////////////////////////////////////////////////
+
+DELETE http://localhost:5000/api/v1/contact/1
+
+/////////////////////////////////////////
+
+//Consultar usuarios
+http://localhost:5000/api/v1/contact
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBbGVqYW5kcm8iLCJlbWFpbCI6ImFsZWphbmRyaXRvQGdtYWlsLmNvbSIsIkZlY2hhQ3JlYWRvIjoiMjAwMC0xMC0zMSIsImp0aSI6IjhlNGIwOTQzLTViNDItNDQxMC1hNzRkLTIyOGE2MjgxMjlmMyIsImV4cCI6MTYwMTA4MjA4MiwiaXNzIjoiREVCU0NvbnN1bHRvcmVzLmNvbSIsImF1ZCI6IkRFQlNDb25zdWx0b3Jlcy5jb20ifQ.JfAsvKoz6a7lU7ZiK7iXXVveKJA9K68SjfZfVE_qpeE
+////////////////////////////////////////////////
+
+PUT http://localhost:5000/api/v1/contact/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "nombre": "Alejandro",
+  "email": "Ale@gmail.com",
+  "cedula": "15541939",
+  "mensaje": "Actualización Correcta"
+}
+
+//////////////////////////////////////////////////
+
+//Crear contacto
+POST http://localhost:5000/api/v1/contact
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBbGVqYW5kcm8iLCJlbWFpbCI6ImFsZWphbmRyaXRvQGdtYWlsLmNvbSIsIkZlY2hhQ3JlYWRvIjoiMjAwMC0xMC0zMSIsImp0aSI6IjQxNGY4NGE5LTVlODktNDcyZC1iYjUzLWE3Yzk5NmUwYzkwNSIsImV4cCI6MTYwMTA3MjUzNCwiaXNzIjoiREVCU0NvbnN1bHRvcmVzLmNvbSIsImF1ZCI6IkRFQlNDb25zdWx0b3Jlcy5jb20ifQ.Uc47Vhq1sCqkDWeJPQkC55qSEmiuAq3MjGM2tpF2Qfc
+
+{
+  "nombre": "Ale",
+  "email": "ale@gmail.com",
+  "cedula": "18487193-9",
+  "mensaje": "Hola"
+}
