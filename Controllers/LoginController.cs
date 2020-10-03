@@ -25,14 +25,14 @@ namespace contactos.Controllers
             _userService = userService;
         }  
         
-        [HttpPost]  
+        [HttpPost("Login")]  
         [AllowAnonymous]
         public IActionResult Login([FromBody]UserDto login)  
         {  
             IActionResult response = Unauthorized();  
 			//Método responsable de Validar las credenciales del usuario y devolver el modelo Usuario
 		    //Para demostración (en este punto) he usado datos de prueba sin persistencia de Datos
-			//Si no retorna un objeto nulo, se procede a generar el JWT.
+			//Si no retorna un objeto nulo, se procede a g")enerar el JWT.
 			//Usando el método GenerateJSONWebToken
             //var user = AuthenticateUser(login);  
             var user = _userService.Authenticate(login.username, login.password);
@@ -40,11 +40,16 @@ namespace contactos.Controllers
             if (user != null)  
             {  
                 var tokenString = GenerateJSONWebToken(user);  
-                response = Ok(new { token = tokenString });  
+                response = Ok(new { token = tokenString, userName = user.username });
             }  
     
             return response;  
         }  
+
+        [HttpGet("Test")]
+        public IActionResult Test() {
+            return Ok("Test message");
+        }
 
         [AllowAnonymous]
         [HttpPost("register")]
@@ -69,6 +74,7 @@ namespace contactos.Controllers
 
         private string GenerateJSONWebToken(User userInfo)  
         {  
+            
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));  
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);  
 
@@ -105,6 +111,6 @@ namespace contactos.Controllers
                 user = new Usuario {username = login.username, password=login.password,email=login.email,FechaCreado=login.FechaCreado};
             }  
             return user;  
-        }  
+        }
     }  
 }  

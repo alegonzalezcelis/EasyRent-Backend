@@ -26,6 +26,8 @@ namespace contactos
 {
     public class Startup
     {
+        // Enable Cors
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -36,6 +38,18 @@ namespace contactos
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Enable Cors
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:8082")
+                                      .AllowAnyHeader()
+                                      .AllowAnyMethod();
+                                  });
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<ContactosContext>(options =>
             options.UseOracle(Configuration.GetConnectionString("DevConnection")));
@@ -72,6 +86,10 @@ namespace contactos
             }
 
             app.UseHttpsRedirection();
+
+            // Enable Cors 
+            app.UseCors(MyAllowSpecificOrigins);
+
             app.UseAuthentication();
             app.UseMvc();
         }
