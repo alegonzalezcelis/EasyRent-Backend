@@ -5,18 +5,17 @@ using System.Threading.Tasks;
 using contactos.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-//using contactos.Services;
 using Microsoft.AspNetCore.Authorization;  
 
 namespace contactos.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class ContactController : ControllerBase
+    public class DepartamentoController : ControllerBase
     {
         private readonly ContactosContext _context;
 
-        public ContactController(ContactosContext context)
+        public DepartamentoController(ContactosContext context)
         {
             _context = context;
         }
@@ -24,9 +23,9 @@ namespace contactos.Controllers
         // METODO GET TODOS LOS REGISTROS
         [HttpGet]
         [Authorize]
-        public IEnumerable<Contacto> GetAll()
+        public IEnumerable<Departamento> GetAll()
         {
-            return _context.Contacto.ToList();
+            return _context.Departamento.ToList();
         }
 
         // METODO GET, REGISTRO POR ID
@@ -45,7 +44,7 @@ namespace contactos.Controllers
 
         // Crear Registro si estoy autorizado
         [HttpPost, Authorize]
-        public async Task<ActionResult<Contacto>> Create([FromBody] Contacto item)
+        public async Task<ActionResult<Departamento>> Create([FromBody] Departamento item)
         {
             if(item==null)
             {
@@ -53,27 +52,28 @@ namespace contactos.Controllers
             }
 
             var currentUser = HttpContext.User;
-            int years = 0;
+            // int years = 0;
 
-            if (currentUser.HasClaim(c => c.Type == "FechaCreado"))
-            {
-                DateTime date = DateTime.Parse(currentUser.Claims.FirstOrDefault(c => c.Type == "FechaCreado").Value);
-                years = DateTime.Today.Year - date.Year;
-            }
+            // if (currentUser.HasClaim(c => c.Type == "FechaCreado"))
+            // {
+            //     DateTime date = DateTime.Parse(currentUser.Claims.FirstOrDefault(c => c.Type == "FechaCreado").Value);
+            //     years = DateTime.Today.Year - date.Year;
+            // }
 
-            if (years < 2)
-            {
-                return Forbid( );
-            }
+            // if (years < 2)
+            // {
+            //     return Forbid( );
+            // }
 
-            _context.Contacto.Add(item);
+            _context.Departamento.Add(item);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetById), new {id = item.id}, item);
         }
 
+        // Actualizar por id
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(long id, [FromBody] Contacto item)
+        public async Task<IActionResult> Update(long id, [FromBody] Departamento item)
         {
             if(item == null || id==0)
             {
@@ -86,17 +86,18 @@ namespace contactos.Controllers
             return NoContent();
         }
 
+        // Borrar por id
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(long id)
         {
-            var contact = await _context.Contacto.FindAsync(id);
+            var departamento = await _context.Departamento.FindAsync(id);
 
-            if(contact==null)
+            if(departamento==null)
             {
                 return NotFound();
             }
 
-            _context.Contacto.Remove(contact);
+            _context.Departamento.Remove(departamento);
             await _context.SaveChangesAsync();
 
             return NoContent();

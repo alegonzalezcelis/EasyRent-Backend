@@ -11,5 +11,7 @@ namespace contactos.Models
             }
             public DbSet<Contacto> Contacto {get; set;}
             public DbSet<User> User {get; set;}
+
+            public DbSet<Departamento> Departamento {get; set;}
     }
 }

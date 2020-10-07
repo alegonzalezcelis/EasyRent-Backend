@@ -1,0 +1,41 @@
+//Todos los registros
+http://localhost:5000/api/v1/departamento/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBbGVqYW5kcm8iLCJlbWFpbCI6ImFsZWphbmRyaXRvQGdtYWlsLmNvbSIsIkZlY2hhQ3JlYWRvIjoiMjAwMC0xMC0zMSIsImp0aSI6ImE2NzdjOTQxLThjYWMtNDUzZC1hMjk1LTBmYzE1ZmM0OTdmYyIsImV4cCI6MTYwMjA0NjgzMywiaXNzIjoiREVCU0NvbnN1bHRvcmVzLmNvbSIsImF1ZCI6IkRFQlNDb25zdWx0b3Jlcy5jb20ifQ.Y6ZkOXIsSPIhOQakEZ2J1G-rchIZXZa_-FXI6khh0aI
+
+
+// Agregar un registro (Cambiar datos)
+POST http://localhost:5000/api/v1/departamento/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBbGVqYW5kcm8iLCJlbWFpbCI6ImFsZWphbmRyaXRvQGdtYWlsLmNvbSIsIkZlY2hhQ3JlYWRvIjoiMjAwMC0xMC0zMSIsImp0aSI6ImE2NzdjOTQxLThjYWMtNDUzZC1hMjk1LTBmYzE1ZmM0OTdmYyIsImV4cCI6MTYwMjA0NjgzMywiaXNzIjoiREVCU0NvbnN1bHRvcmVzLmNvbSIsImF1ZCI6IkRFQlNDb25zdWx0b3Jlcy5jb20ifQ.Y6ZkOXIsSPIhOQakEZ2J1G-rchIZXZa_-FXI6khh0aI
+
+
+{
+  "nombre": "Departamento Sin Techo",
+  "descripción": "Departamento con vista a las estrellas",
+  "tamanio": "50 Metros Cuadrados",
+  "ubicacion": "Viña del Mar - Avenida Peru 689",
+  "precio": "400.000",
+  "condiciones": "Excelentes condiciones",
+  "estado": 1
+}
+
+// Modificar un registro (Cambiar datos)
+
+PUT http://localhost:5000/api/v1/departamento/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBbGVqYW5kcm8iLCJlbWFpbCI6ImFsZWphbmRyaXRvQGdtYWlsLmNvbSIsIkZlY2hhQ3JlYWRvIjoiMjAwMC0xMC0zMSIsImp0aSI6ImE2NzdjOTQxLThjYWMtNDUzZC1hMjk1LTBmYzE1ZmM0OTdmYyIsImV4cCI6MTYwMjA0NjgzMywiaXNzIjoiREVCU0NvbnN1bHRvcmVzLmNvbSIsImF1ZCI6IkRFQlNDb25zdWx0b3Jlcy5jb20ifQ.Y6ZkOXIsSPIhOQakEZ2J1G-rchIZXZa_-FXI6khh0aI
+
+
+{
+  "id": 3,
+  "nombre": "Departamento Sin Techo",
+  "descripcion": "Departamento con vista a las estrellas",
+  "tamanio": "50 Metros Cuadrados",
+  "ubicacion": "Viña del Mar - Avenida Peru 689",
+  "precio": "300.000",
+  "condiciones": "Excelentes condiciones",
+  "estado": 1
+}
+
+// Borrar registros
+DELETE http://localhost:5000/api/v1/departamento/2
