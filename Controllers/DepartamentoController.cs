@@ -21,7 +21,7 @@ namespace contactos.Controllers
         }
 
         // METODO GET TODOS LOS REGISTROS
-        [HttpGet]
+        [HttpGet("listar")]
         [Authorize]
         public IEnumerable<Departamento> GetAll()
         {

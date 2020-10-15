@@ -1,41 +1,38 @@
 //Todos los registros
-http://localhost:5000/api/v1/departamento/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBbGVqYW5kcm8iLCJlbWFpbCI6ImFsZWphbmRyaXRvQGdtYWlsLmNvbSIsIkZlY2hhQ3JlYWRvIjoiMjAwMC0xMC0zMSIsImp0aSI6ImE2NzdjOTQxLThjYWMtNDUzZC1hMjk1LTBmYzE1ZmM0OTdmYyIsImV4cCI6MTYwMjA0NjgzMywiaXNzIjoiREVCU0NvbnN1bHRvcmVzLmNvbSIsImF1ZCI6IkRFQlNDb25zdWx0b3Jlcy5jb20ifQ.Y6ZkOXIsSPIhOQakEZ2J1G-rchIZXZa_-FXI6khh0aI
-
+http://localhost:5000/api/v1/departamento/listar
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDaGF5YW5uZSIsImVtYWlsIjoiZGllZ29AZ21haWwuY29tIiwiRmVjaGFDcmVhZG8iOiIyMDEyLTEyLTEyIiwianRpIjoiMTIzYzI0MDYtYjllMC00NjFkLThlMjYtMTYyOTZjOTlmOWFjIiwiZXhwIjoxNjAyNzMzNzk3LCJpc3MiOiJERUJTQ29uc3VsdG9yZXMuY29tIiwiYXVkIjoiREVCU0NvbnN1bHRvcmVzLmNvbSJ9.9-klQInKcCMvZDR3kqTBCXIV1hNdwUxM7WHJ9gIedRU
 
 // Agregar un registro (Cambiar datos)
 POST http://localhost:5000/api/v1/departamento/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBbGVqYW5kcm8iLCJlbWFpbCI6ImFsZWphbmRyaXRvQGdtYWlsLmNvbSIsIkZlY2hhQ3JlYWRvIjoiMjAwMC0xMC0zMSIsImp0aSI6ImE2NzdjOTQxLThjYWMtNDUzZC1hMjk1LTBmYzE1ZmM0OTdmYyIsImV4cCI6MTYwMjA0NjgzMywiaXNzIjoiREVCU0NvbnN1bHRvcmVzLmNvbSIsImF1ZCI6IkRFQlNDb25zdWx0b3Jlcy5jb20ifQ.Y6ZkOXIsSPIhOQakEZ2J1G-rchIZXZa_-FXI6khh0aI
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDaGF5YW5uZSIsImVtYWlsIjoiZGllZ29AZ21haWwuY29tIiwiRmVjaGFDcmVhZG8iOiIyMDEyLTEyLTEyIiwianRpIjoiMTIzYzI0MDYtYjllMC00NjFkLThlMjYtMTYyOTZjOTlmOWFjIiwiZXhwIjoxNjAyNzMzNzk3LCJpc3MiOiJERUJTQ29uc3VsdG9yZXMuY29tIiwiYXVkIjoiREVCU0NvbnN1bHRvcmVzLmNvbSJ9.9-klQInKcCMvZDR3kqTBCXIV1hNdwUxM7WHJ9gIedRU
 
 {
-  "nombre": "Departamento Sin Techo",
-  "descripción": "Departamento con vista a las estrellas",
-  "tamanio": "50 Metros Cuadrados",
-  "ubicacion": "Viña del Mar - Avenida Peru 689",
-  "precio": "400.000",
-  "condiciones": "Excelentes condiciones",
+  "nombre": "Departamento de Jordi",
+  "descripcion": "Departamento grande",
+  "tamanio": "80 metros",
+  "ubicacion": "Melipilla",
+  "precio": "150.000",
+  "condiciones": "Pesimas condiciones",
   "estado": 1
 }
 
 // Modificar un registro (Cambiar datos)
 
-PUT http://localhost:5000/api/v1/departamento/3
+PUT http://localhost:5000/api/v1/departamento/actualizar/4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBbGVqYW5kcm8iLCJlbWFpbCI6ImFsZWphbmRyaXRvQGdtYWlsLmNvbSIsIkZlY2hhQ3JlYWRvIjoiMjAwMC0xMC0zMSIsImp0aSI6ImE2NzdjOTQxLThjYWMtNDUzZC1hMjk1LTBmYzE1ZmM0OTdmYyIsImV4cCI6MTYwMjA0NjgzMywiaXNzIjoiREVCU0NvbnN1bHRvcmVzLmNvbSIsImF1ZCI6IkRFQlNDb25zdWx0b3Jlcy5jb20ifQ.Y6ZkOXIsSPIhOQakEZ2J1G-rchIZXZa_-FXI6khh0aI
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDYXRhbGluYSIsImVtYWlsIjoiY2F0YUBnbWFpbC5jb20iLCJGZWNoYUNyZWFkbyI6IjIwMTEtMTEtMTEiLCJqdGkiOiI5YzA1MzFiOC1hY2UyLTQzOWEtOTAxNS0zZmEyYmM4NGRkMzYiLCJleHAiOjE2MDIyMDc3MDksImlzcyI6IkRFQlNDb25zdWx0b3Jlcy5jb20iLCJhdWQiOiJERUJTQ29uc3VsdG9yZXMuY29tIn0.HfkST9FurWcOuVGBipk5UX-i-VUU3nA8EnDueEL-PMo
 
 {
-  "id": 3,
-  "nombre": "Departamento Sin Techo",
-  "descripcion": "Departamento con vista a las estrellas",
-  "tamanio": "50 Metros Cuadrados",
-  "ubicacion": "Viña del Mar - Avenida Peru 689",
-  "precio": "300.000",
+  "id": 21,
+  "nombre": "Ale Departamentito",
+  "descripcion": "Departamento de Ale",
+  "tamanio": "3 cm",
+  "ubicacion": "Mallarauco",
+  "precio": "100.000",
   "condiciones": "Excelentes condiciones",
   "estado": 1
 }
 
 // Borrar registros
-DELETE http://localhost:5000/api/v1/departamento/2
+DELETE http://localhost:5000/api/v1/departamento/4
