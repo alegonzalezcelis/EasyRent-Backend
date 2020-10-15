@@ -44,7 +44,11 @@ namespace contactos
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                                   builder =>
                                   {
+<<<<<<< HEAD
                                       builder.WithOrigins("http://localhost:8080")
+=======
+                                      builder.WithOrigins("http://localhost:8082")
+>>>>>>> 7b8d0ef2c1b52857ff9d436e5d4e13d43f5e49d9
                                       .AllowAnyHeader()
                                       .AllowAnyMethod();
                                   });
